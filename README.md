@@ -1,4 +1,5 @@
-```` CREATE DATABASE user_book;
+```` 
+CREATE DATABASE user_book;
 
 CREATE TABLE user (
         id INT NOT NULL PRIMARY KEY,
