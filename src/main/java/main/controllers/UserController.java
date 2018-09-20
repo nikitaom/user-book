@@ -9,8 +9,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.transaction.Transactional;
+import java.util.List;
 
 
+@Transactional
 @Controller
 public class UserController {
 
@@ -25,6 +28,12 @@ public class UserController {
     @GetMapping("/")
     public String getUsers(ModelMap model) {
         model.addAttribute("users", repository.findAll());
+        model.addAttribute("name", "Mikita");
+        List<User> userList = repository.findAll();
+        for (User u: userList
+             ) {
+            System.out.println(u.toString());
+        }
         return "index";
     }
 
@@ -36,8 +45,8 @@ public class UserController {
 
     @PostMapping("/new-user")
     public String newUser(User user){
-        User user1 = repository.save(user);
-        return "index";
+        repository.save(user);
+        return "redirect:/";
     }
 
 

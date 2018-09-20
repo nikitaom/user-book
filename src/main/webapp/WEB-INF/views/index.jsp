@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <title>User-book</title>
 <head>
@@ -21,6 +23,8 @@
     </div>
 
 </nav>
+
+<p>${name}</p>
 <a href="/new-user" type="button" class="btn btn-default">+add user</a>
 <table id="table" class="table table-striped table-bordered">
     <thead>
@@ -35,7 +39,7 @@
         <tr>
             <td>${user.name}
             <td>${user.email}</td>
-                    </tr>
+        </tr>
     </c:forEach>
     </tbody>
 </table>
