@@ -9,10 +9,15 @@ import java.util.List;
 @Service
 public class UserService {
 
-    public User saveUser(User user){
-        User user1 = new User(user.getName(),user.getEmail());
-        return user1;
+    @Autowired
+    UserRepository userRepository;
+
+    public void deleteUserById(long id) {
+        userRepository.delete((int) id);
+
     }
 
-
+    public User findById(long id) {
+        return userRepository.findOne((int) id);
+    }
 }

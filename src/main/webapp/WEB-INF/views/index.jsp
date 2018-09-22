@@ -13,25 +13,24 @@
 <head>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
-
 </head>
+
 <body>
+
 <nav role="navigation" class="navbar navbar-default">
     <div class="">
         <a href="#" class="navbar-brand">User book</a>
     </div>
-
 </nav>
 
-<p>${name}</p>
 <a href="/new-user" type="button" class="btn btn-default">+add user</a>
+
 <table id="table" class="table table-striped table-bordered">
     <thead>
     <tr>
         <td>Name</td>
         <td>Email</td>
-
+        <td class="column">Delete</td>
     </tr>
     </thead>
     <tbody>
@@ -39,6 +38,10 @@
         <tr>
             <td>${user.name}
             <td>${user.email}</td>
+            <td class="column">
+                <a type="button" class="btn btn-sm btn-danger" href="/delete/${user.id}"><span
+                        class="glyphicon glyphicon-trash" ></span></a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
